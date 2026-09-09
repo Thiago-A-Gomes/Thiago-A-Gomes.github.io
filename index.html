@@ -27,4 +27,57 @@
 </div></div></section>
 </main>
 <footer class="footer" id="contato"><div class="container"><span class="eyebrow">04 / VAMOS CONVERSAR</span><div class="footer-grid"><div><h2>Uma boa conversa.<br>Uma nova possibilidade</h2><p>Para falar sobre projetos, tecnologia ou oportunidades, entre em contato.</p></div><ul class="footer-contato"><li><a href="mailto:thigogo3@gmail.com">thigogo3@gmail.com <span aria-hidden="true">↗</span></a></li><li><a href="https://www.linkedin.com/in/thiago-gomes-9a85a4268/">LinkedIn <span aria-hidden="true">↗</span></a></li><li><a href="https://github.com/Thiago-A-Gomes">GitHub <span aria-hidden="true">↗</span></a></li><li><a href="tel:+5511958179439">(11) 95817-9439 <span aria-hidden="true">↗</span></a></li></ul></div><div class="footer-base"><p>Thiago Gomes © 2026</p><a href="#inicio">Voltar ao início ↑</a><p>Salto, São Paulo · Brasil</p></div></div></footer>
+<style>
+.header-menu a::after{content:"";position:absolute;bottom:3px;left:0;width:100%;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.header-menu a:hover::after,.header-menu a:focus-visible::after{transform:scaleX(1)}
+.projeto,.botao,.estudos a{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.projeto-link span,.footer-contato a span{display:inline-block;transition:transform .25s ease}
+.projeto:focus-within{border-color:#78ae50;box-shadow:0 8px 24px #1414140b}
+@media(hover:hover) and (pointer:fine){
+ .projeto:hover{transform:translateY(-5px);border-color:#78ae50;box-shadow:0 12px 30px #1414140d}
+ .botao:hover{transform:translateY(-3px);box-shadow:0 6px 16px #67dd0a33}
+ .estudos a:hover{transform:translateX(4px)}
+ .projeto-link:hover span,.footer-contato a:hover span{transform:translate(3px,-3px)}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .header-menu a::after,.projeto,.botao,.estudos a,.projeto-link span,.footer-contato a span{transition:none!important;transform:none!important}
+}
+</style>
+<script>
+(() => {
+  const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!('IntersectionObserver' in window) || !Element.prototype.animate) return;
+  let observer;
+  const active = new Set();
+  const seen = new WeakSet();
+  const reveal = (element, delay = 0) => {
+    if (preference.matches || seen.has(element)) return;
+    seen.add(element);
+    const animation = element.animate([
+      { opacity: 0, transform: 'translateY(18px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ], { duration: 600, delay, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards' });
+    active.add(animation);
+    animation.onfinish = animation.oncancel = () => active.delete(animation);
+  };
+  const setup = () => {
+    observer?.disconnect();
+    active.forEach(animation => animation.cancel());
+    if (preference.matches) return;
+    document.querySelectorAll('.retrato, .introducao-conteudo > *').forEach((element, index) => reveal(element, index * 65));
+    observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          reveal(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.secao-lateral, .abertura, .projeto, .empresa, .curso, .estudos, .footer-grid').forEach(element => observer.observe(element));
+  };
+  preference.addEventListener('change', setup);
+  setup();
+})();
+</script>
 </body></html>
