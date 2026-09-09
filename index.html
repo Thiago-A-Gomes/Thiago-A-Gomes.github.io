@@ -3,7 +3,7 @@
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Thiago Gomes — Desenvolvedor Full Stack & Analista de Suporte</title><meta name="description" content="Portfólio de Thiago Gomes: desenvolvimento Full Stack, suporte de TI e soluções para problemas reais. Conheça Central de Compras, FiscalGuard e outros projetos."><meta name="theme-color" content="#141414"><link rel="stylesheet" href="./css/portfolio.css"><link rel="stylesheet" href="./css/refinamento.css"><link rel="icon" type="image/svg+xml" href="./img/favicon.svg"></head>
 <body>
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-<header class="header container"><a class="marca" href="#inicio" aria-label="Thiago Gomes, início">Thiago Gomes</a><nav aria-label="Navegação principal"><ul class="header-menu"><li><a href="#projetos">Projetos</a></li><li><a href="#experiencia">Experiência</a></li><li><a href="#formacao">Formação</a></li><li><a href="#contato">Contato</a></li></ul></nav></header>
+<header class="header container"><nav aria-label="Navegação principal"><ul class="header-menu"><li><a href="#projetos"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Projetos</span></a></li><li><a href="#experiencia"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12a22 22 0 0 0 18 0M10 13h4"/></svg><span>Experiência</span></a></li><li><a href="#formacao"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5zM6 11v6c4 3 8 3 12 0v-6M22 9v7"/></svg><span>Formação</span></a></li><li><a href="#contato"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-2 2V11.5a9.5 9.5 0 0 1 19 0Z"/><path d="M7 11h.01M12 11h.01M17 11h.01"/></svg><span>Contato</span></a></li></ul></nav></header>
 <main id="conteudo">
 <section class="introducao container" id="inicio" aria-labelledby="titulo">
 <div class="retrato"><img src="./img/thiago-gomes.jpg" alt="Thiago Gomes" width="1254" height="1254" fetchpriority="high"><span class="retrato-legenda"><strong>Thiago Gomes</strong><span>Salto, São Paulo</span></span></div>
@@ -28,6 +28,22 @@
 </main>
 <footer class="footer" id="contato"><div class="container"><span class="eyebrow">04 / VAMOS CONVERSAR</span><div class="footer-grid"><div><h2>Uma boa conversa.<br>Uma nova possibilidade</h2><p>Tem uma ideia ou uma tarefa que toma tempo demais? Vamos entender o seu negócio e pensar em uma solução.</p></div><ul class="footer-contato"><li><a href="mailto:thigogo3@gmail.com">thigogo3@gmail.com <span aria-hidden="true">↗</span></a></li><li><a href="https://www.linkedin.com/in/thiago-gomes-9a85a4268/">LinkedIn <span aria-hidden="true">↗</span></a></li><li><a href="https://github.com/Thiago-A-Gomes">GitHub <span aria-hidden="true">↗</span></a></li><li><a href="https://wa.me/5511958179439">WhatsApp · (11) 95817-9439 <span aria-hidden="true">↗</span></a></li></ul></div><div class="footer-base"><p>Thiago Gomes © 2026</p><a href="#inicio">Voltar ao início ↑</a><p>Salto, São Paulo · Brasil</p></div></div></footer>
 <style>
+.header{display:flex;justify-content:center;padding-top:20px;padding-bottom:20px}
+.header nav{width:100%;max-width:760px;margin:0}
+.header-menu{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.header-menu a{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:12px 8px;border:0;border-radius:10px;font-weight:600;transition:background .2s,color .2s}
+.header-menu a svg{flex-shrink:0}
+.header-menu a:hover,.header-menu a[aria-current="location"]{background:#f0f9e9;color:#327700}
+.header-menu a::after{left:20%;width:60%;bottom:3px}
+.header-menu a[aria-current="location"]::after{transform:scaleX(1)}
+@media(max-width:760px){
+ .header{padding-top:12px;padding-bottom:12px}
+ .header nav{margin:0}
+ .header-menu{display:grid;gap:6px}
+ .header-menu a{flex-direction:column;gap:6px;font-size:.8125rem;min-height:68px;padding:8px 2px;white-space:nowrap}
+ .header-menu a svg{width:23px;height:23px}
+}
+
 /* Apresentação de serviços e projetos */
 .introducao{grid-template-columns:280px minmax(0,1fr);gap:64px;padding-top:64px;padding-bottom:72px}
 .retrato img{width:260px;height:260px}
@@ -115,6 +131,29 @@
   };
   preference.addEventListener('change', setup);
   setup();
+})();
+</script>
+<script>
+(() => {
+ const links = [...document.querySelectorAll('.header-menu a')];
+ const sections = links.map(link => document.querySelector(link.getAttribute('href')));
+ let scheduled = false;
+ const update = () => {
+   scheduled = false;
+   const marker = window.innerHeight * .35;
+   let current = null;
+   sections.forEach(section => { if (section && section.getBoundingClientRect().top <= marker) current = section.id; });
+   if (window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = 'contato';
+   links.forEach(link => {
+     if (link.hash === '#' + current) link.setAttribute('aria-current', 'location');
+     else link.removeAttribute('aria-current');
+   });
+ };
+ const schedule = () => { if (!scheduled) { scheduled = true; requestAnimationFrame(update); } };
+ window.addEventListener('scroll', schedule, { passive: true });
+ window.addEventListener('resize', schedule);
+ window.addEventListener('load', update);
+ update();
 })();
 </script>
 </body></html>
