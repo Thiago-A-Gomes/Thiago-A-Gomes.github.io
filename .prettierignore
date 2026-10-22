@@ -1,0 +1,10 @@
+assets/
+dist/
+dist-server/
+node_modules/
+index.html
+package-lock.json
+reports/
+playwright-report/
+test-results/
+img/

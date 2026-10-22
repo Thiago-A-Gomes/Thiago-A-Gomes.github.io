@@ -1,0 +1,5 @@
+* text=auto eol=lf
+assets/* -text
+*.webp binary
+*.png binary
+*.jpg binary

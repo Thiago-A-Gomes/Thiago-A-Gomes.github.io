@@ -1,0 +1,41 @@
+{
+  "name": "thiago-gomes-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^22.19.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && vite build && vite build --ssr src/entry-server.tsx --outDir ../dist-server && node scripts/prerender.mjs",
+    "preview": "vite preview --host 127.0.0.1",
+    "test:e2e": "playwright test",
+    "test:report": "playwright show-report",
+    "export:pages": "node scripts/export-pages.mjs",
+    "sync:repositories": "node scripts/sync-repositories.mjs",
+    "format": "prettier --write app scripts tests *.ts *.js package.json README.md",
+    "format:check": "prettier --check app scripts tests *.ts *.js package.json README.md"
+  },
+  "dependencies": {
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "4.7.0",
+    "postcss": "^8.5.31",
+    "prettier": "3.6.2",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3",
+    "vite": "6.4.5"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true
+  }
+}

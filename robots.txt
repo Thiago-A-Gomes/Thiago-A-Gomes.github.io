@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://thiago-a-gomes.github.io/sitemap.xml

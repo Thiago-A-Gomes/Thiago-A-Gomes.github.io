@@ -1,0 +1,11 @@
+node_modules/
+dist/
+dist-server/
+test-results/
+playwright-report/
+reports/*.zip
+reports/*.html
+reports/*.png
+reports/lighthouse-*.json
+.env
+*.log
