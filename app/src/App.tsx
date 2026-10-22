@@ -289,9 +289,9 @@ export function App() {
                   <span>Prática para construir.</span>
                 </p>
                 <p>
-                  Atuo com suporte de TI e desenvolvimento de aplicações para apoiar a operação.
-                  Essa vivência me aproxima dos problemas reais: tarefas repetitivas, informação
-                  espalhada e sistemas que precisam conversar.
+                  Tenho experiência com suporte de TI e desenvolvimento de aplicações para apoiar a
+                  operação. Essa vivência me aproximou dos problemas reais: tarefas repetitivas,
+                  informação espalhada e sistemas que precisam conversar.
                 </p>
                 <p>
                   Sou formado em Análise e Desenvolvimento de Sistemas e agora curso Engenharia de
@@ -326,7 +326,7 @@ export function App() {
                 </div>
                 <div className="timeline">
                   <article>
-                    <span className="timeline-date">2025 — ATUAL</span>
+                    <span className="timeline-date">JUL/2025 — OUT/2026</span>
                     <h4>Analista de Suporte Júnior</h4>
                     <p>
                       Microsoft 365, Windows Server, Azure, monitoramento, redes e telecomunicações.
