@@ -8,6 +8,7 @@ Portfólio pessoal com projetos selecionados, catálogo dos repositórios públi
 
 - Tema escuro como padrão, com alternância para claro e preferência salva no navegador.
 - Composição 3D feita com CSS, com perspectiva ao mover o ponteiro e controle de pausa.
+- Órbitas animadas, entradas suaves dos cards durante a rolagem e respostas ao passar o mouse.
 - Preferência por movimento reduzido respeitada em animações e rolagem.
 - Cards com alturas alinhadas, imagens proporcionais e filtros por categoria.
 - Detalhes dos projetos em diálogo, navegação por teclado e restauração do foco.
