@@ -3,6 +3,7 @@ import { expect, test } from '@playwright/test';
 test('apresentação, formação atual e projetos carregam sem erros de hidratação', async ({
   page,
 }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   page.on('console', (message) => {
@@ -11,8 +12,9 @@ test('apresentação, formação atual e projetos carregam sem erros de hidrata�
   await page.goto('/');
   await expect(page).toHaveTitle('Thiago Gomes — Portfólio');
   await expect(page.locator('.brand')).toHaveAccessibleName(/thiago gomes/i);
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('soluções');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('ganham vida');
   await expect(page.locator('.project-card')).toHaveCount(5);
+  await page.locator('.journey-details > summary').click();
   await expect(page.locator('.current-education')).toContainText('Engenharia de Software');
   await expect(page.locator('.current-education')).toContainText('UNINTER');
   await expect(page.locator('.current-education')).toContainText('EM ANDAMENTO');
@@ -102,6 +104,7 @@ test('catálogo inclui todos os 13 repositórios públicos e permite busca, ling
   page,
 }) => {
   await page.goto('/#repositorios');
+  await page.locator('.catalog-details > summary').click();
   await expect(page.locator('.repo-card')).toHaveCount(13);
   const search = page.getByRole('searchbox', { name: 'Buscar repositório' });
   await search.fill('kurio');
@@ -128,12 +131,14 @@ test('animação pode ser pausada e respeita movimento reduzido', async ({ page 
     'true',
   );
   expect(
-    await page.locator('.cube').evaluate((element) => getComputedStyle(element).animationPlayState),
+    await page
+      .locator('.sculpture')
+      .evaluate((element) => getComputedStyle(element).animationPlayState),
   ).toBe('paused');
   await page.getByRole('button', { name: 'Retomar animação 3D' }).click();
   await page.emulateMedia({ reducedMotion: 'reduce' });
   expect(
-    await page.locator('.cube').evaluate((element) => getComputedStyle(element).animationName),
+    await page.locator('.sculpture').evaluate((element) => getComputedStyle(element).animationName),
   ).toBe('none');
   await expect(page.locator('.motion-toggle')).toBeHidden();
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
@@ -201,7 +206,7 @@ test('conteúdo, formação e links permanecem disponíveis sem JavaScript', asy
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto(baseURL!);
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('soluções');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('ganham vida');
   await expect(page.locator('.project-card')).toHaveCount(5);
   await expect(page.locator('.repo-card')).toHaveCount(13);
   await expect(page.locator('.current-education')).toContainText('UNINTER');

@@ -7,13 +7,13 @@ Portfólio pessoal com projetos selecionados, catálogo dos repositórios públi
 ## Interface
 
 - Tema escuro como padrão, com alternância para claro e preferência salva no navegador.
-- Composição 3D feita com CSS, com perspectiva ao mover o ponteiro e controle de pausa.
-- Órbitas animadas, entradas suaves dos cards durante a rolagem e respostas ao passar o mouse.
+- Direção visual criativa: grafite, verde-lima e detalhes roxos. Escultura ilustrativa original em imagem otimizada, com movimento suave e controle de pausa.
+- Galeria visual com Ritmo Lab em destaque, descrições curtas e detalhes técnicos nos diálogos.
 - Preferência por movimento reduzido respeitada em animações e rolagem.
 - Cards com alturas alinhadas, imagens proporcionais e filtros por categoria.
 - Detalhes dos projetos em diálogo, navegação por teclado e restauração do foco.
-- Catálogo dos repositórios públicos com busca, filtro por linguagem e ordenação.
-- Contato por e-mail, LinkedIn, GitHub e WhatsApp; botão para copiar o e-mail.
+- Catálogo dos repositórios públicos com busca, filtro por linguagem e ordenação, recolhido inicialmente para reduzir a densidade visual.
+- Experiência e formação em seção expansível. Contato por e-mail, LinkedIn, GitHub e WhatsApp; botão para copiar o e-mail.
 - HTML pré-renderizado: conteúdo, formação e links dos projetos disponíveis antes do JavaScript.
 
 ## Executar

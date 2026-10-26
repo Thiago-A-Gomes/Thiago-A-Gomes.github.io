@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import portrait from '../../img/thiago-gomes.webp';
 import portraitMedium from '../../img/thiago-gomes-medium.webp';
-import portraitSmall from '../../img/thiago-gomes-small.webp';
 import { projects, type Category, type Project } from './data/projects';
 import { Icon } from './components/Icon';
 import { HeroScene } from './components/HeroScene';
@@ -26,14 +25,16 @@ export function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const copyTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const dismiss = useCallback(() => setSelected(null), []);
-  const filtered = projects.filter((p) => category === 'Todos' || p.category === category);
+  const filtered = [...projects]
+    .sort((a, b) => (a.id === 'ritmo-lab' ? -1 : b.id === 'ritmo-lab' ? 1 : 0))
+    .filter((p) => category === 'Todos' || p.category === category);
 
   useEffect(() => {
     const current = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
     setTheme(current);
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute('content', current === 'dark' ? '#11160f' : '#f7f8f4');
+      ?.setAttribute('content', current === 'dark' ? '#090a0f' : '#f7f8f4');
   }, []);
 
   function toggleTheme() {
@@ -42,7 +43,7 @@ export function App() {
     document.documentElement.dataset.theme = next;
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute('content', next === 'dark' ? '#11160f' : '#f7f8f4');
+      ?.setAttribute('content', next === 'dark' ? '#090a0f' : '#f7f8f4');
     try {
       localStorage.setItem('portfolio.theme', next);
     } catch {
@@ -143,18 +144,14 @@ export function App() {
         <section className="hero container" id="inicio" aria-labelledby="hero-title">
           <div className="hero-copy">
             <p className="eyebrow">
-              <span className="tiny-line" /> OLÁ, EU SOU O THIAGO
+              <span className="tiny-line" /> THIAGO GOMES / DESENVOLVEDOR
             </p>
             <h1 id="hero-title">
-              Ideias que viram
+              Ideias que
               <br />
-              <span className="hero-emphasis">soluções</span> <br />
-              digitais<span className="accent-text">.</span>
+              ganham vida<span className="accent-text">.</span>
             </h1>
-            <p className="hero-description">
-              Construo aplicações web, conecto sistemas e automatizo rotinas. Tecnologia para
-              simplificar o trabalho e transformar boas ideias em algo que funciona.
-            </p>
+            <p className="hero-description">Desenvolvimento & experiências digitais.</p>
             <div className="hero-actions">
               <a className="button primary" href="#projetos">
                 Conhecer projetos <Icon name="down" />
@@ -168,39 +165,9 @@ export function App() {
                 <Icon name="github" /> GitHub
               </a>
             </div>
-            <div className="hero-person">
-              <img
-                src={portraitSmall}
-                alt="Thiago Gomes"
-                width="48"
-                height="48"
-                fetchPriority="high"
-              />
-              <div>
-                <strong>Thiago Gomes</strong>
-                <span>Salto, São Paulo · Brasil</span>
-              </div>
-              <span className="person-rule" />
-              <p>
-                Construindo.
-                <br />
-                <span>Aprendendo sempre.</span>
-              </p>
-            </div>
           </div>
           <HeroScene />
         </section>
-        <div className="tech-strip">
-          <div className="container tech-strip-inner">
-            <span className="tech-strip-caption">
-              DA INTERFACE
-              <br />À INTEGRAÇÃO
-            </span>
-            {['React', 'TypeScript', 'Node.js', 'Python', 'Azure', 'Automação'].map((item) => (
-              <span key={item}>{item}</span>
-            ))}
-          </div>
-        </div>
         <section
           className="section projects-section"
           id="projetos"
@@ -209,15 +176,12 @@ export function App() {
           <div className="container">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">01 / DO CÓDIGO À PRÁTICA</p>
+                <p className="eyebrow">01 / PROJETOS SELECIONADOS</p>
                 <h2 id="projects-title">
-                  Projetos com propósito<span className="accent-text">.</span>
+                  Design encontra código<span className="accent-text">.</span>
                 </h2>
               </div>
-              <p>
-                De uma rotina de compras a um marketplace. Conheça o problema, a solução e as
-                escolhas por trás de cada entrega.
-              </p>
+              <p>Interfaces, ideias e soluções que você pode explorar.</p>
             </div>
             <div className="projects-toolbar">
               <div className="filter-group" role="group" aria-label="Filtrar projetos">
@@ -241,7 +205,7 @@ export function App() {
                 <ProjectCard
                   key={project.id}
                   project={project}
-                  featured={project.id === 'central-compras'}
+                  featured={project.id === 'ritmo-lab'}
                   onDetails={setSelected}
                 />
               ))}
@@ -255,14 +219,10 @@ export function App() {
               <div>
                 <p className="eyebrow">03 / QUEM ESTÁ POR TRÁS</p>
                 <h2 id="about-title">
-                  Pessoas, problemas
-                  <br />e possibilidades<span className="accent-text">.</span>
+                  Prazer, Thiago<span className="accent-text">.</span>
                 </h2>
               </div>
-              <p>
-                Minha trajetória combina atendimento, operação e desenvolvimento. Entender a
-                necessidade de quem usa vem antes de escrever a primeira linha.
-              </p>
+              <p>Curiosidade, código e atenção a quem está do outro lado da tela.</p>
             </div>
             <div className="about-grid">
               <div className="about-portrait">
@@ -289,15 +249,10 @@ export function App() {
                   <span>Prática para construir.</span>
                 </p>
                 <p>
-                  Tenho experiência com suporte de TI e desenvolvimento de aplicações para apoiar a
-                  operação. Essa vivência me aproximou dos problemas reais: tarefas repetitivas,
-                  informação espalhada e sistemas que precisam conversar.
+                  Uno desenvolvimento web e experiência em suporte de TI para criar soluções simples
+                  de usar.
                 </p>
-                <p>
-                  Sou formado em Análise e Desenvolvimento de Sistemas e agora curso Engenharia de
-                  Software na UNINTER. Sigo ampliando minha base em desenvolvimento, cloud e
-                  automação, com projetos e aprendizado contínuo.
-                </p>
+                <p>Formado em ADS, hoje curso Engenharia de Software na UNINTER.</p>
                 <div className="about-facts">
                   <div>
                     <span>FOCO</span>
@@ -318,81 +273,87 @@ export function App() {
                 </a>
               </div>
             </div>
-            <div className="journey-grid">
-              <section aria-labelledby="experience-title" id="experiencia">
-                <div className="subsection-heading">
-                  <Icon name="workflow" />
-                  <h3 id="experience-title">Experiência</h3>
-                </div>
-                <div className="timeline">
-                  <article>
-                    <span className="timeline-date">JUL/2025 — OUT/2026</span>
-                    <h4>Analista de Suporte Júnior</h4>
-                    <p>
-                      Microsoft 365, Windows Server, Azure, monitoramento, redes e telecomunicações.
-                      Desenvolvimento de aplicações internas para apoiar a operação.
-                    </p>
-                    <ul className="tech-list">
-                      <li>Azure</li>
-                      <li>Microsoft 365</li>
-                      <li>Redes</li>
-                      <li>Desenvolvimento</li>
-                    </ul>
-                  </article>
-                  <article>
-                    <span className="timeline-date">2023 — 2024</span>
-                    <h4>Estagiário de TI</h4>
-                    <p className="employer">John Deere Brasil</p>
-                    <p>
-                      Suporte a sistemas, integração entre plataformas, automação e documentação
-                      técnica, com trabalho organizado em Scrum e Kanban.
-                    </p>
-                  </article>
-                </div>
-              </section>
-              <section aria-labelledby="education-title" id="formacao">
-                <div className="subsection-heading">
-                  <Icon name="layers" />
-                  <h3 id="education-title">Formação & aprendizado</h3>
-                </div>
-                <div className="education-list">
-                  <article className="current-education">
-                    <span className="education-status">
-                      <span className="status-dot" /> EM ANDAMENTO
-                    </span>
-                    <h4>Engenharia de Software</h4>
-                    <p>UNINTER</p>
-                  </article>
-                  <article>
-                    <span className="eyebrow">GRADUAÇÃO CONCLUÍDA</span>
-                    <h4>Análise e Desenvolvimento de Sistemas</h4>
-                    <p>CEUNSP · Tecnólogo</p>
-                  </article>
-                </div>
-                <div className="certifications">
-                  <span>CERTIFICAÇÕES MICROSOFT AZURE</span>
-                  <div>
-                    <span>
-                      AZ-900 <small>Fundamentals</small>
-                    </span>
-                    <span>
-                      AZ-104 <small>Administrator</small>
-                    </span>
+            <details className="journey-details">
+              <summary>
+                Experiência e formação <span aria-hidden="true">+</span>
+              </summary>
+              <div className="journey-grid">
+                <section aria-labelledby="experience-title" id="experiencia">
+                  <div className="subsection-heading">
+                    <Icon name="workflow" />
+                    <h3 id="experience-title">Experiência</h3>
                   </div>
-                </div>
-                <details className="learning-details">
-                  <summary>
-                    Formação complementar e idiomas <span aria-hidden="true">+</span>
-                  </summary>
-                  <ul>
-                    <li>Front-end: Origamid, DIO e TIM Tec</li>
-                    <li>MySQL: Udemy</li>
-                    <li>Python / RPA e metodologia OKR</li>
-                  </ul>
-                  <p>Português: nativo · Inglês: corporativo · Espanhol: intermediário</p>
-                </details>
-              </section>
-            </div>
+                  <div className="timeline">
+                    <article>
+                      <span className="timeline-date">JUL/2025 — OUT/2026</span>
+                      <h4>Analista de Suporte Júnior</h4>
+                      <p>
+                        Microsoft 365, Windows Server, Azure, monitoramento, redes e
+                        telecomunicações. Desenvolvimento de aplicações internas para apoiar a
+                        operação.
+                      </p>
+                      <ul className="tech-list">
+                        <li>Azure</li>
+                        <li>Microsoft 365</li>
+                        <li>Redes</li>
+                        <li>Desenvolvimento</li>
+                      </ul>
+                    </article>
+                    <article>
+                      <span className="timeline-date">2023 — 2024</span>
+                      <h4>Estagiário de TI</h4>
+                      <p className="employer">John Deere Brasil</p>
+                      <p>
+                        Suporte a sistemas, integração entre plataformas, automação e documentação
+                        técnica, com trabalho organizado em Scrum e Kanban.
+                      </p>
+                    </article>
+                  </div>
+                </section>
+                <section aria-labelledby="education-title" id="formacao">
+                  <div className="subsection-heading">
+                    <Icon name="layers" />
+                    <h3 id="education-title">Formação & aprendizado</h3>
+                  </div>
+                  <div className="education-list">
+                    <article className="current-education">
+                      <span className="education-status">
+                        <span className="status-dot" /> EM ANDAMENTO
+                      </span>
+                      <h4>Engenharia de Software</h4>
+                      <p>UNINTER</p>
+                    </article>
+                    <article>
+                      <span className="eyebrow">GRADUAÇÃO CONCLUÍDA</span>
+                      <h4>Análise e Desenvolvimento de Sistemas</h4>
+                      <p>CEUNSP · Tecnólogo</p>
+                    </article>
+                  </div>
+                  <div className="certifications">
+                    <span>CERTIFICAÇÕES MICROSOFT AZURE</span>
+                    <div>
+                      <span>
+                        AZ-900 <small>Fundamentals</small>
+                      </span>
+                      <span>
+                        AZ-104 <small>Administrator</small>
+                      </span>
+                    </div>
+                  </div>
+                  <details className="learning-details">
+                    <summary>
+                      Formação complementar e idiomas <span aria-hidden="true">+</span>
+                    </summary>
+                    <ul>
+                      <li>Front-end: Origamid, DIO e TIM Tec</li>
+                      <li>MySQL: Udemy</li>
+                      <li>Python / RPA e metodologia OKR</li>
+                    </ul>
+                    <p>Português: nativo · Inglês: corporativo · Espanhol: intermediário</p>
+                  </details>
+                </section>
+              </div>
+            </details>
           </div>
         </section>
         <section className="contact-section" id="contato" aria-labelledby="contact-title">
@@ -406,9 +367,9 @@ export function App() {
             <div className="contact-grid">
               <div>
                 <h2 id="contact-title">
-                  Uma boa conversa.
+                  Vamos criar
                   <br />
-                  Uma nova <em>possibilidade.</em>
+                  <em>algo juntos?</em>
                 </h2>
                 <p>
                   Uma oportunidade, um projeto ou uma ideia para tirar do papel. Vamos conversar?
