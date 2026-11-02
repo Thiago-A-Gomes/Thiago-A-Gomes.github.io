@@ -12,6 +12,7 @@ export function ProjectCard({
   onDetails: (project: Project) => void;
 }) {
   const summaries: Record<string, string> = {
+    'central-estudos': 'Cada estudo, um próximo passo.',
     'ritmo-lab': 'Crie ritmos. Treine sua escuta.',
     'central-compras': 'Da solicitação ao ERP, em um só fluxo.',
     kurio: 'Uma experiência de descoberta para arte digital.',
@@ -57,7 +58,9 @@ export function ProjectCard({
             rel="noopener noreferrer"
             aria-label={
               project.demo
-                ? `Abrir demonstração de ${project.name}`
+                ? project.access === 'private'
+                  ? `Abrir acesso privado de ${project.name}`
+                  : `Abrir demonstração de ${project.name}`
                 : `Abrir documentação de ${project.name}`
             }
           >

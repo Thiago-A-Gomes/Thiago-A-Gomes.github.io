@@ -1,6 +1,8 @@
 import kurio from '../../../img/kurio-interface.webp';
 import fiscalguard from '../../../img/fiscalguard-case.svg';
 import caixinha from '../../../img/caixinha-interface.webp';
+import centralEstudos from '../../../img/central-estudos-interface.jpg';
+import centralEstudosVideo from '../../../img/central-estudos-apresentacao.mp4';
 
 export type Category = 'Todos' | 'Aplicações web' | 'Automação';
 export interface Project {
@@ -14,7 +16,9 @@ export interface Project {
   image?: string;
   imageAlt?: string;
   demo?: string;
-  repository: string;
+  repository?: string;
+  access?: 'private';
+  video?: string;
   context: string;
   solution: string;
   highlights: string[];
@@ -22,6 +26,33 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    id: 'central-estudos',
+    name: 'Central de Estudos',
+    label: 'Aprendizado personalizado',
+    category: 'Aplicações web',
+    status: 'Acesso privado',
+    access: 'private',
+    description:
+      'Uma central pessoal para praticar JavaScript, inglês e conteúdos de concursos, com progressão por domínio.',
+    technologies: ['JavaScript', 'ES Modules', 'Web Workers', 'HTML / CSS', 'localStorage'],
+    image: centralEstudos,
+    imageAlt: 'Central de Estudos de Thiago Gomes com identidade visual própria e acesso privado',
+    video: centralEstudosVideo,
+    demo: 'https://objetos-lab-thiago.thiagogogomes.chatgpt.site',
+    context:
+      'Organizar assuntos das aulas e transformar dúvidas recorrentes em uma trilha pessoal de prática e revisão.',
+    solution:
+      'Central com 31 desafios de JavaScript, editor, testes executáveis e 26 práticas de inglês, matemática, português e informática forense. O progresso e o caderno de dúvidas ficam no navegador.',
+    highlights: [
+      '119 verificações de comportamento no laboratório JavaScript',
+      'Execução de código em Web Worker, com interrupção após 2 segundos',
+      'Liberação gradual de atividades após os testes',
+      'Identidade visual própria e interface responsiva',
+    ],
+    limitation:
+      'A aplicação é privada e exige autenticação com a conta autorizada do ChatGPT. A apresentação em vídeo é pública; ela não libera acesso à central. Dados e progresso ficam no navegador. As práticas textuais usam respostas de referência, sem avaliação semântica por IA.',
+  },
   {
     id: 'central-compras',
     name: 'Central de Compras',

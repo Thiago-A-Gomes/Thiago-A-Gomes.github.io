@@ -28,7 +28,7 @@ export function ProjectDialog({ project, onDismiss }: { project: Project; onDism
       onKeyDown={(e) => {
         if (e.key !== 'Tab') return;
         const elements = Array.from(
-          e.currentTarget.querySelectorAll<HTMLElement>('a[href],button:not([disabled])'),
+          e.currentTarget.querySelectorAll<HTMLElement>('a[href],button:not([disabled]),video[controls]'),
         );
         const first = elements[0],
           last = elements.at(-1);
@@ -53,6 +53,12 @@ export function ProjectDialog({ project, onDismiss }: { project: Project; onDism
       </div>
       <p className="project-label">{project.label}</p>
       <h2 id="dialog-title">{project.name}</h2>
+      {project.video && (
+        <figure className="project-demo-video">
+          <video controls preload="none" poster={project.image} src={project.video} aria-label={`Apresentação de ${project.name}`} />
+          <figcaption>Apresentação · 28 segundos · Capturas da interface</figcaption>
+        </figure>
+      )}
       <div className="dialog-section">
         <h3>O contexto</h3>
         <p>{project.context}</p>
@@ -86,10 +92,10 @@ export function ProjectDialog({ project, onDismiss }: { project: Project; onDism
             target="_blank"
             rel="noopener noreferrer"
           >
-            Abrir demonstração <Icon name="arrow" />
+            {project.access === 'private' ? 'Abrir central · acesso privado' : 'Abrir demonstração'} <Icon name="arrow" />
           </a>
         )}
-        <a
+        {project.repository && (<a
           className="button secondary"
           href={project.repository}
           target="_blank"
@@ -97,7 +103,7 @@ export function ProjectDialog({ project, onDismiss }: { project: Project; onDism
         >
           {project.id === 'ritmo-lab' ? 'Repositórios no GitHub' : 'Código e documentação'}{' '}
           <Icon name="github" />
-        </a>
+        </a>)}
       </div>
     </dialog>
   );
