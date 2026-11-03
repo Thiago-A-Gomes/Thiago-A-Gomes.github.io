@@ -1,6 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import portrait from '../../img/thiago-gomes.webp';
-import portraitMedium from '../../img/thiago-gomes-medium.webp';
 import { projects, type Category, type Project } from './data/projects';
 import { Icon } from './components/Icon';
 import { HeroScene } from './components/HeroScene';
@@ -8,6 +6,8 @@ import { ProjectCard } from './components/ProjectCard';
 import { ProjectDialog } from './components/ProjectDialog';
 import { RepositoryExplorer } from './components/RepositoryExplorer';
 import { useScrollReveal } from './useScrollReveal';
+
+const portrait = 'https://avatars.githubusercontent.com/u/130492474?v=4';
 
 const navigation = [
   { id: 'projetos', label: 'Projetos' },
@@ -151,7 +151,16 @@ export function App() {
               <br />
               ganham vida<span className="accent-text">.</span>
             </h1>
-            <p className="hero-description">Desenvolvimento & experiências digitais.</p>
+            <p className="hero-description">
+              Desenvolvimento web, automação e tecnologia para pessoas.
+            </p>
+            <div className="hero-person">
+              <img src={portrait} alt="" width="46" height="46" />
+              <div>
+                <strong>Thiago Gomes</strong>
+                <span>Desenvolvedor & suporte de TI</span>
+              </div>
+            </div>
             <div className="hero-actions">
               <a className="button primary" href="#projetos">
                 Conhecer projetos <Icon name="down" />
@@ -228,8 +237,6 @@ export function App() {
               <div className="about-portrait">
                 <img
                   src={portrait}
-                  srcSet={`${portraitMedium} 400w, ${portrait} 760w`}
-                  sizes="(max-width:620px) 320px, 430px"
                   alt="Retrato de Thiago Gomes"
                   width="1254"
                   height="1254"
@@ -321,12 +328,12 @@ export function App() {
                         <span className="status-dot" /> EM ANDAMENTO
                       </span>
                       <h4>Engenharia de Software</h4>
-                      <p>UNINTER</p>
+                      <p>UNINTER · Bacharelado · 2026 — previsão: set/2030</p>
                     </article>
                     <article>
                       <span className="eyebrow">GRADUAÇÃO CONCLUÍDA</span>
                       <h4>Análise e Desenvolvimento de Sistemas</h4>
-                      <p>CEUNSP · Tecnólogo</p>
+                      <p>CEUNSP · Tecnólogo · Conclusão: 20/12/2024</p>
                     </article>
                   </div>
                   <div className="certifications">
