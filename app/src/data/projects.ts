@@ -31,27 +31,26 @@ export const projects: Project[] = [
     name: 'Central de Estudos',
     label: 'Aprendizado personalizado',
     category: 'Aplicações web',
-    status: 'Acesso privado',
-    access: 'private',
+    status: 'Acesso público',
     description:
-      'Uma central pessoal para praticar JavaScript, inglês e conteúdos de concursos, com progressão por domínio.',
+      'Uma central pessoal para praticar JavaScript, lógica, inglês e outras disciplinas, com progressão por domínio.',
     technologies: ['JavaScript', 'ES Modules', 'Web Workers', 'HTML / CSS', 'localStorage'],
     image: centralEstudos,
-    imageAlt: 'Central de Estudos de Thiago Gomes com identidade visual própria e acesso privado',
+    imageAlt: 'Central de Estudos de Thiago Gomes com identidade visual própria e acesso público',
     video: centralEstudosVideo,
     demo: 'https://objetos-lab-thiago.thiagogogomes.chatgpt.site',
     context:
       'Organizar assuntos das aulas e transformar dúvidas recorrentes em uma trilha pessoal de prática e revisão.',
     solution:
-      'Central com 31 desafios de JavaScript, editor, testes executáveis e 26 práticas de inglês, matemática, português e informática forense. O progresso e o caderno de dúvidas ficam no navegador.',
+      'Central com 91 desafios de JavaScript, editor, testes executáveis e 26 práticas de inglês, matemática, português e dados e segurança. O progresso e o caderno de dúvidas ficam no navegador.',
     highlights: [
-      '119 verificações de comportamento no laboratório JavaScript',
+      '272 verificações de comportamento no laboratório JavaScript',
       'Execução de código em Web Worker, com interrupção após 2 segundos',
       'Liberação gradual de atividades após os testes',
       'Identidade visual própria e interface responsiva',
     ],
     limitation:
-      'A aplicação é privada e exige autenticação com a conta autorizada do ChatGPT. A apresentação em vídeo é pública; ela não libera acesso à central. Dados e progresso ficam no navegador. As práticas textuais usam respostas de referência, sem avaliação semântica por IA.',
+      'Acesso público, com 60 exercícios originais de lógica e progressão por domínio. Dados e progresso ficam no navegador. As práticas textuais usam respostas de referência, sem avaliação semântica por IA.',
   },
   {
     id: 'central-compras',
