@@ -56,7 +56,7 @@ export function ProjectDialog({ project, onDismiss }: { project: Project; onDism
       {project.video && (
         <figure className="project-demo-video">
           <video controls preload="none" poster={project.image} src={project.video} aria-label={`Apresentação de ${project.name}`} />
-          <figcaption>Apresentação · 28 segundos · Capturas da interface</figcaption>
+          <figcaption>Apresentação · 44 segundos · Funcionalidades na prática · Com música</figcaption>
         </figure>
       )}
       <div className="dialog-section">
