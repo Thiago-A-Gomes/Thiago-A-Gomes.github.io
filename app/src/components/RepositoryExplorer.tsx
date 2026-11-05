@@ -37,56 +37,56 @@ export function RepositoryExplorer() {
       <div className="container">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">02 / MEU LABORATÓRIO</p>
+            <p className="eyebrow">02 / MY LAB</p>
             <h2 id="repositories-title">
-              Um commit de cada vez<span className="accent-text">.</span>
+              One commit at a time<span className="accent-text">.</span>
             </h2>
           </div>
           <p>
-            Projetos, estudos e experimentos. Todos os meus repositórios públicos, em um só lugar.
+            Projects, studies, and experiments. All my public repositories in one place.
           </p>
         </div>
         <details className="catalog-details">
           <summary>
-            Explorar repositórios <span aria-hidden="true">+</span>
+            Explore repositories <span aria-hidden="true">+</span>
           </summary>
           <div className="repo-toolbar">
             <div className="search-field">
-              <label htmlFor="repository-search">Buscar repositório</label>
+              <label htmlFor="repository-search">Search repositories</label>
               <input
                 id="repository-search"
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Nome, tecnologia ou assunto..."
+                placeholder="Name, technology, or topic..."
               />
             </div>
             <div className="select-field">
-              <label htmlFor="repository-language">Linguagem</label>
+              <label htmlFor="repository-language">Language</label>
               <select
                 id="repository-language"
                 value={language}
                 onChange={(e) => setLanguage(e.target.value)}
               >
                 {languages.map((l) => (
-                  <option key={l}>{l}</option>
+                  <option key={l} value={l}>{l === 'Todas' ? 'All' : l}</option>
                 ))}
               </select>
             </div>
             <div className="select-field">
-              <label htmlFor="repository-order">Ordenar</label>
+              <label htmlFor="repository-order">Sort</label>
               <select id="repository-order" value={sort} onChange={(e) => setSort(e.target.value)}>
-                <option value="recent">Mais recentes</option>
-                <option value="name">Nome A–Z</option>
+                <option value="recent">Most recent</option>
+                <option value="name">Name A–Z</option>
               </select>
             </div>
           </div>
           <div className="repo-meta">
             <p role="status">
-              {repositories.length} de {catalog.repositories.length} repositórios
+              {repositories.length} of {catalog.repositories.length} repositories
             </p>
             <span>
-              Atualizado em{' '}
+              Updated on{' '}
               <time dateTime={catalog.syncedAt}>
                 {catalog.syncedAt.split('-').reverse().join('/')}
               </time>
@@ -99,10 +99,10 @@ export function RepositoryExplorer() {
                   <Icon name="code" />
                   <span>
                     {repo.name === 'Thiago-A-Gomes'
-                      ? 'Perfil'
+                      ? 'Profile'
                       : repo.topics.includes('learning-project')
-                        ? 'Estudo'
-                        : 'Repositório'}
+                        ? 'Study'
+                        : 'Repository'}
                   </span>
                 </div>
                 <h3>
@@ -111,14 +111,14 @@ export function RepositoryExplorer() {
                     <Icon name="arrow" />
                   </a>
                 </h3>
-                <p>{repo.description || 'Código e documentação disponíveis no GitHub.'}</p>
+                <p>{repo.description || 'Code and documentation available on GitHub.'}</p>
                 <div className="repo-bottom">
                   <span className={`language language-${repo.language?.toLowerCase() || 'docs'}`}>
                     <i aria-hidden="true" />
-                    {repo.language || 'Documentação'}
+                    {repo.language || 'Documentation'}
                   </span>
                   {repo.fork && <span>Fork</span>}
-                  {repo.archived && <span>Arquivado</span>}
+                  {repo.archived && <span>Archived</span>}
                 </div>
               </article>
             ))}
@@ -126,8 +126,8 @@ export function RepositoryExplorer() {
           {repositories.length === 0 && (
             <div className="empty-state">
               <Icon name="code" />
-              <h3>Nenhum repositório encontrado</h3>
-              <p>Tente outro nome ou remova os filtros.</p>
+              <h3>No repositories found</h3>
+              <p>Try another name or clear the filters.</p>
               <button
                 className="button secondary"
                 onClick={() => {
@@ -135,19 +135,19 @@ export function RepositoryExplorer() {
                   setLanguage('Todas');
                 }}
               >
-                Limpar filtros
+                Clear filters
               </button>
             </div>
           )}
           <div className="repository-footer">
-            <span>Uma coleção de aprendizados em construção.</span>
+            <span>A growing collection of lessons learned.</span>
             <a
               className="text-link"
               href="https://github.com/Thiago-A-Gomes?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Explorar no GitHub <Icon name="arrow" />
+              Explore on GitHub <Icon name="arrow" />
             </a>
           </div>
         </details>

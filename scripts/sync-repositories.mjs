@@ -1,6 +1,6 @@
 import { writeFile } from 'node:fs/promises';
 
-// Somente a API pública, sem credenciais. Nenhum dado privado vai para o site.
+// Public API only, without credentials. No private data is sent to the site.
 const owner = 'Thiago-A-Gomes';
 const all = [];
 for (let page = 1; page <= 100; page++) {
@@ -12,9 +12,9 @@ for (let page = 1; page <= 100; page++) {
     },
   );
   if (!response.ok)
-    throw new Error(`GitHub HTTP ${response.status}: o catálogo anterior foi preservado.`);
+    throw new Error(`GitHub HTTP ${response.status}: the previous catalog was preserved.`);
   const batch = await response.json();
-  if (!Array.isArray(batch)) throw new Error('Resposta inválida do GitHub.');
+  if (!Array.isArray(batch)) throw new Error('Invalid response from GitHub.');
   all.push(...batch);
   if (batch.length < 100) break;
 }
@@ -33,7 +33,7 @@ const repositories = all
     updatedAt: repo.pushed_at,
     topics: repo.topics || [],
   }));
-if (repositories.length === 0) throw new Error('A lista vazia não substitui o catálogo existente.');
+if (repositories.length === 0) throw new Error('An empty list cannot replace the existing catalog.');
 const kurio = repositories.find((repo) => repo.name === 'frontend-challenge-kurio');
 if (kurio) {
   kurio.description = 'Marketplace de NFTs com React e TypeScript, API simulada e testes E2E.';
@@ -41,7 +41,7 @@ if (kurio) {
 }
 const portfolio = repositories.find((repo) => repo.name === 'Thiago-A-Gomes.github.io');
 if (portfolio) {
-  portfolio.description = 'Portfólio com React, TypeScript, Vite e Tailwind CSS.';
+  portfolio.description = 'A portfolio built with React, TypeScript, Vite, and Tailwind CSS.';
   portfolio.language = 'TypeScript';
 }
 await writeFile(
@@ -57,5 +57,5 @@ await writeFile(
   ) + '\n',
 );
 console.log(
-  `${repositories.length} repositórios públicos atualizados. Revise o diff antes de publicar.`,
+  `${repositories.length} public repositories updated. Review the diff before publishing.`,
 );

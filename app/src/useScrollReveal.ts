@@ -17,7 +17,7 @@ export function useScrollReveal() {
           for (const entry of entries) {
             if (!entry.isIntersecting || seen.has(entry.target)) continue;
             seen.add(entry.target);
-            // O conteúdo continua visível sem JavaScript ou sem suporte à animação.
+            // Content remains visible without JavaScript or animation support.
             const animation = entry.target.animate(
               [
                 { opacity: 0.65, transform: 'translateY(14px)' },

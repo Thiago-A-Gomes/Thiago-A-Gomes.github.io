@@ -42,10 +42,10 @@ export function ProjectDialog({ project, onDismiss }: { project: Project; onDism
       }}
     >
       <div className="dialog-top">
-        <span className="eyebrow">Por dentro do projeto</span>
+        <span className="eyebrow">Project details</span>
         <button
           className="icon-button"
-          aria-label="Fechar detalhes"
+          aria-label="Close details"
           onClick={() => ref.current?.close()}
         >
           <Icon name="close" />
@@ -55,20 +55,20 @@ export function ProjectDialog({ project, onDismiss }: { project: Project; onDism
       <h2 id="dialog-title">{project.name}</h2>
       {project.video && (
         <figure className="project-demo-video">
-          <video controls preload="none" poster={project.image} src={project.video} aria-label={`Apresentação de ${project.name}`} />
-          <figcaption>Apresentação · 44 segundos · Funcionalidades na prática · Com música</figcaption>
+          <video controls preload="none" poster={project.image} src={project.video} aria-label={`${project.name} presentation`} />
+          <figcaption>Presentation · 44 seconds · Features in action · With music</figcaption>
         </figure>
       )}
       <div className="dialog-section">
-        <h3>O contexto</h3>
+        <h3>Context</h3>
         <p>{project.context}</p>
       </div>
       <div className="dialog-section">
-        <h3>A solução</h3>
+        <h3>Solution</h3>
         <p>{project.solution}</p>
       </div>
       <div className="dialog-section">
-        <h3>O que explorar</h3>
+        <h3>Highlights</h3>
         <ul className="highlights">
           {project.highlights.map((item) => (
             <li key={item}>
@@ -78,7 +78,7 @@ export function ProjectDialog({ project, onDismiss }: { project: Project; onDism
           ))}
         </ul>
       </div>
-      <ul className="tech-list" aria-label="Tecnologias">
+      <ul className="tech-list" aria-label="Technologies">
         {project.technologies.map((t) => (
           <li key={t}>{t}</li>
         ))}
@@ -92,7 +92,7 @@ export function ProjectDialog({ project, onDismiss }: { project: Project; onDism
             target="_blank"
             rel="noopener noreferrer"
           >
-            {project.access === 'private' ? 'Abrir central · acesso privado' : 'Abrir demonstração'} <Icon name="arrow" />
+            {project.access === 'private' ? 'Open portal · private access' : 'Open demo'} <Icon name="arrow" />
           </a>
         )}
         {project.repository && (<a
@@ -101,7 +101,7 @@ export function ProjectDialog({ project, onDismiss }: { project: Project; onDism
           target="_blank"
           rel="noopener noreferrer"
         >
-          {project.id === 'ritmo-lab' ? 'Repositórios no GitHub' : 'Código e documentação'}{' '}
+          {project.id === 'ritmo-lab' ? 'GitHub repositories' : 'Code and documentation'}{' '}
           <Icon name="github" />
         </a>)}
       </div>

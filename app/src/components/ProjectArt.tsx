@@ -5,15 +5,15 @@ export function WorkflowArt() {
     <div
       className="workflow-art"
       role="img"
-      aria-label="Esquema ilustrativo: solicitação, catálogo, aprovação e integração com ERP"
+      aria-label="Illustration of a request, catalog, approval, and ERP integration workflow"
     >
       <div className="art-caption">
-        <span className="status-dot" /> FLUXO INTEGRADO <Icon name="workflow" />
+        <span className="status-dot" /> INTEGRATED WORKFLOW <Icon name="workflow" />
       </div>
       <div className="flow-item">
         <span className="flow-number">01</span>
         <span>
-          Solicitação de compra<small>Um ponto de entrada</small>
+          Purchase request<small>One point of entry</small>
         </span>
         <Icon name="check" />
       </div>
@@ -21,7 +21,7 @@ export function WorkflowArt() {
       <div className="flow-item active">
         <span className="flow-number">02</span>
         <span>
-          Catálogo & carrinho<small>Escolher. Organizar. Enviar.</small>
+          Catalog & cart<small>Choose. Organize. Submit.</small>
         </span>
         <Icon name="layers" />
       </div>
@@ -29,7 +29,7 @@ export function WorkflowArt() {
       <div className="flow-item">
         <span className="flow-number">03</span>
         <span>
-          Integração com ERP<small>Histórico e acompanhamento</small>
+          ERP integration<small>History and tracking</small>
         </span>
         <Icon name="arrow" />
       </div>
@@ -46,7 +46,7 @@ export function RhythmArt() {
     <div
       className="rhythm-art"
       role="img"
-      aria-label="Ilustração do Ritmo Lab: notas musicais sobre uma pauta e sequência de batidas"
+      aria-label="Ritmo Lab illustration: musical notes on a staff and a sequence of beats"
     >
       <div className="rhythm-heading">
         <span>RITMO LAB</span>
@@ -74,7 +74,7 @@ export function RhythmArt() {
         ))}
       </div>
       <div className="rhythm-footer">
-        <span>COMPOSIÇÃO · ESCUTA · PRÁTICA</span>
+        <span>COMPOSITION · LISTENING · PRACTICE</span>
         <span className="play-symbol">
           <Icon name="play" />
         </span>

@@ -10,15 +10,15 @@ export function HeroScene() {
         <img src={orbit} alt="" width="1536" height="1024" fetchPriority="high" />
       </div>
       <div className="scene-bottom">
-        <span>TECNOLOGIA × CRIATIVIDADE</span>
+        <span>TECHNOLOGY × CREATIVITY</span>
         <button
           type="button"
           className="motion-toggle"
           onClick={() => setPaused((v) => !v)}
           aria-pressed={paused}
-          aria-label={paused ? 'Retomar animação 3D' : 'Pausar animação 3D'}
+          aria-label={paused ? 'Resume 3D animation' : 'Pause 3D animation'}
         >
-          <Icon name={paused ? 'play' : 'pause'} /> {paused ? 'Retomar' : 'Pausar'}
+          <Icon name={paused ? 'play' : 'pause'} /> {paused ? 'Resume' : 'Pause'}
         </button>
       </div>
     </div>

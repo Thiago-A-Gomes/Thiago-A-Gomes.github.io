@@ -10,10 +10,10 @@ import { useScrollReveal } from './useScrollReveal';
 const portrait = 'https://avatars.githubusercontent.com/u/130492474?v=4';
 
 const navigation = [
-  { id: 'projetos', label: 'Projetos' },
-  { id: 'repositorios', label: 'Laboratório' },
-  { id: 'sobre', label: 'Sobre' },
-  { id: 'contato', label: 'Contato' },
+  { id: 'projetos', label: 'Projects' },
+  { id: 'repositorios', label: 'Lab' },
+  { id: 'sobre', label: 'About' },
+  { id: 'contato', label: 'Contact' },
 ];
 
 export function App() {
@@ -47,7 +47,7 @@ export function App() {
     try {
       localStorage.setItem('portfolio.theme', next);
     } catch {
-      /* A troca de tema continua disponível sem armazenamento. */
+      /* Theme switching remains available without storage. */
     }
   }
 
@@ -83,9 +83,9 @@ export function App() {
   async function copyEmail() {
     try {
       await navigator.clipboard.writeText('thigogo3@gmail.com');
-      setCopied('E-mail copiado!');
+      setCopied('Email copied!');
     } catch {
-      setCopied('Copie o endereço: thigogo3@gmail.com');
+      setCopied('Copy the address: thigogo3@gmail.com');
     }
     clearTimeout(copyTimer.current);
     copyTimer.current = setTimeout(() => setCopied(''), 5000);
@@ -94,7 +94,7 @@ export function App() {
   return (
     <>
       <a className="skip-link" href="#conteudo">
-        Pular para o conteúdo
+        Skip to content
       </a>
       <header className="site-header">
         <div className="container header-inner">
@@ -103,7 +103,7 @@ export function App() {
               Thiago Gomes<span>Full-Stack Developer</span>
             </span>
           </a>
-          <nav aria-label="Navegação principal">
+          <nav aria-label="Main navigation">
             {navigation.map((item) => (
               <a
                 key={item.id}
@@ -122,15 +122,15 @@ export function App() {
               type="button"
               className="theme-toggle"
               onClick={toggleTheme}
-              aria-label={theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'}
-              title={theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'}
+              aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+              title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
             >
               <Icon name={theme === 'dark' ? 'sun' : 'moon'} />
             </button>
             <a
               className="header-contact"
               href="mailto:thigogo3@gmail.com"
-              aria-label="Enviar e-mail para Thiago Gomes"
+              aria-label="Email Thiago Gomes"
             >
               <Icon name="arrow" />
             </a>
@@ -141,26 +141,26 @@ export function App() {
         <section className="hero container" id="inicio" aria-labelledby="hero-title">
           <div className="hero-copy">
             <p className="eyebrow">
-              <span className="tiny-line" /> THIAGO GOMES / DESENVOLVEDOR
+              <span className="tiny-line" /> THIAGO GOMES / DEVELOPER
             </p>
             <h1 id="hero-title">
-              Ideias que
+              Ideas that
               <br />
-              ganham vida<span className="accent-text">.</span>
+              come to life<span className="accent-text">.</span>
             </h1>
             <p className="hero-description">
-              Desenvolvimento web, automação e tecnologia para pessoas.
+              Web development, automation, and technology for people.
             </p>
             <div className="hero-person">
               <img src={portrait} alt="" width="46" height="46" />
               <div>
                 <strong>Thiago Gomes</strong>
-                <span>Desenvolvedor & suporte de TI</span>
+                <span>Developer & IT support</span>
               </div>
             </div>
             <div className="hero-actions">
               <a className="button primary" href="#projetos">
-                Conhecer projetos <Icon name="down" />
+                Explore projects <Icon name="down" />
               </a>
               <a
                 className="text-link"
@@ -182,28 +182,28 @@ export function App() {
           <div className="container">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">01 / PROJETOS SELECIONADOS</p>
+                <p className="eyebrow">01 / SELECTED PROJECTS</p>
                 <h2 id="projects-title">
-                  Design encontra código<span className="accent-text">.</span>
+                  Design meets code<span className="accent-text">.</span>
                 </h2>
               </div>
-              <p>Interfaces, ideias e soluções que você pode explorar.</p>
+              <p>Interfaces, ideas, and solutions to explore.</p>
             </div>
             <div className="projects-toolbar">
-              <div className="filter-group" role="group" aria-label="Filtrar projetos">
+              <div className="filter-group" role="group" aria-label="Filter projects">
                 {(['Todos', 'Aplicações web', 'Automação'] as Category[]).map((item) => (
                   <button
                     key={item}
                     aria-pressed={category === item}
                     onClick={() => setCategory(item)}
                   >
-                    {item}
+                    {({ Todos: 'All', 'Aplicações web': 'Web apps', Automação: 'Automation' } as Record<Category, string>)[item]}
                     {item === 'Todos' && <span>{projects.length}</span>}
                   </button>
                 ))}
               </div>
               <span className="project-count" role="status">
-                {filtered.length} projetos selecionados
+                {filtered.length} selected projects
               </span>
             </div>
             <div className="projects-grid">
@@ -279,37 +279,36 @@ export function App() {
             </div>
             <details className="journey-details">
               <summary>
-                Experiência e formação <span aria-hidden="true">+</span>
+                Experience and education <span aria-hidden="true">+</span>
               </summary>
               <div className="journey-grid">
                 <section aria-labelledby="experience-title" id="experiencia">
                   <div className="subsection-heading">
                     <Icon name="workflow" />
-                    <h3 id="experience-title">Experiência</h3>
+                    <h3 id="experience-title">Experience</h3>
                   </div>
                   <div className="timeline">
                     <article>
-                      <span className="timeline-date">JUL/2025 — OUT/2026</span>
-                      <h4>Analista de Suporte Júnior</h4>
+                      <span className="timeline-date">JUL 2025 — OCT 2026</span>
+                      <h4>Junior Support Analyst</h4>
                       <p>
-                        Microsoft 365, Windows Server, Azure, monitoramento, redes e
-                        telecomunicações. Desenvolvimento de aplicações internas para apoiar a
-                        operação.
+                        Microsoft 365, Windows Server, Azure, monitoring, networks, and
+                        telecommunications. Development of internal applications to support operations.
                       </p>
                       <ul className="tech-list">
                         <li>Azure</li>
                         <li>Microsoft 365</li>
-                        <li>Redes</li>
-                        <li>Desenvolvimento</li>
+                        <li>Networking</li>
+                        <li>Development</li>
                       </ul>
                     </article>
                     <article>
                       <span className="timeline-date">2023 — 2024</span>
-                      <h4>Estagiário de TI</h4>
+                      <h4>IT Intern</h4>
                       <p className="employer">John Deere Brasil</p>
                       <p>
-                        Suporte a sistemas, integração entre plataformas, automação e documentação
-                        técnica, com trabalho organizado em Scrum e Kanban.
+                        Systems support, platform integration, automation, and technical
+                        documentation, using Scrum and Kanban practices.
                       </p>
                     </article>
                   </div>
@@ -317,24 +316,24 @@ export function App() {
                 <section aria-labelledby="education-title" id="formacao">
                   <div className="subsection-heading">
                     <Icon name="layers" />
-                    <h3 id="education-title">Formação & aprendizado</h3>
+                    <h3 id="education-title">Education & learning</h3>
                   </div>
                   <div className="education-list">
                     <article className="current-education">
                       <span className="education-status">
-                        <span className="status-dot" /> EM ANDAMENTO
+                        <span className="status-dot" /> IN PROGRESS
                       </span>
-                      <h4>Engenharia de Software</h4>
-                      <p>UNINTER · Bacharelado · 2026 — previsão: set/2030</p>
+                      <h4>Software Engineering</h4>
+                      <p>UNINTER · Bachelor’s degree · 2026 — expected Sep 2030</p>
                     </article>
                     <article>
-                      <span className="eyebrow">GRADUAÇÃO CONCLUÍDA</span>
-                      <h4>Análise e Desenvolvimento de Sistemas</h4>
-                      <p>CEUNSP · Tecnólogo · Conclusão: 20/12/2024</p>
+                      <span className="eyebrow">COMPLETED DEGREE</span>
+                      <h4>Systems Analysis and Development</h4>
+                      <p>CEUNSP · Technology degree · Completed Dec 20, 2024</p>
                     </article>
                   </div>
                   <div className="certifications">
-                    <span>CERTIFICAÇÕES MICROSOFT AZURE</span>
+                    <span>MICROSOFT AZURE CERTIFICATIONS</span>
                     <div>
                       <span>
                         AZ-900 <small>Fundamentals</small>
@@ -346,14 +345,14 @@ export function App() {
                   </div>
                   <details className="learning-details">
                     <summary>
-                      Formação complementar e idiomas <span aria-hidden="true">+</span>
+                      Additional training and languages <span aria-hidden="true">+</span>
                     </summary>
                     <ul>
                       <li>Front-end: Origamid, DIO e TIM Tec</li>
                       <li>MySQL: Udemy</li>
-                      <li>Python / RPA e metodologia OKR</li>
+                      <li>Python / RPA and OKR methodology</li>
                     </ul>
-                    <p>Português: nativo · Inglês: corporativo · Espanhol: intermediário</p>
+                    <p>Portuguese: native · English: business · Spanish: intermediate</p>
                   </details>
                 </section>
               </div>
@@ -363,7 +362,7 @@ export function App() {
         <section className="contact-section" id="contato" aria-labelledby="contact-title">
           <div className="container">
             <div className="contact-top">
-              <p className="eyebrow">04 / O PRÓXIMO PASSO</p>
+              <p className="eyebrow">04 / THE NEXT STEP</p>
               <span className="contact-spark" aria-hidden="true">
                 ✳
               </span>
@@ -371,15 +370,15 @@ export function App() {
             <div className="contact-grid">
               <div>
                 <h2 id="contact-title">
-                  Vamos criar
+                  Let’s create
                   <br />
-                  <em>algo juntos?</em>
+                  <em>something together?</em>
                 </h2>
                 <p>
-                  Uma oportunidade, um projeto ou uma ideia para tirar do papel. Vamos conversar?
+                  Have an opportunity, project, or idea to bring to life? Let’s talk.
                 </p>
                 <a className="button primary" href="mailto:thigogo3@gmail.com">
-                  Enviar um e-mail <Icon name="arrow" />
+                  Send an email <Icon name="arrow" />
                 </a>
               </div>
               <div className="contact-links">
@@ -388,9 +387,9 @@ export function App() {
                   <button
                     onClick={copyEmail}
                     className="icon-button"
-                    aria-label="Copiar endereço de e-mail"
+                    aria-label="Copy email address"
                   >
-                    <Icon name={copied === 'E-mail copiado!' ? 'check' : 'copy'} />
+                    <Icon name={copied === 'Email copied!' ? 'check' : 'copy'} />
                   </button>
                 </div>
                 <p className="copy-feedback" role="status">
@@ -419,8 +418,8 @@ export function App() {
               <a className="footer-brand" href="#inicio">
                 thiago gomes<span>®</span>
               </a>
-              <p>Feito com React, TypeScript e vontade de construir.</p>
-              <a href="#inicio">Voltar ao início ↑</a>
+              <p>Built with React, TypeScript, and a drive to create.</p>
+              <a href="#inicio">Back to top ↑</a>
               <span>© 2026</span>
             </footer>
           </div>
@@ -430,4 +429,3 @@ export function App() {
     </>
   );
 }
-
