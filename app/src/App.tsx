@@ -223,18 +223,18 @@ export function App() {
           <div className="container">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">03 / QUEM ESTÁ POR TRÁS</p>
+                <p className="eyebrow">03 / ABOUT ME</p>
                 <h2 id="about-title">
-                  Prazer, Thiago<span className="accent-text">.</span>
+                  Hi, I’m Thiago<span className="accent-text">.</span>
                 </h2>
               </div>
-              <p>Curiosidade, código e atenção a quem está do outro lado da tela.</p>
+              <p>Curiosity, code, and care for the people on the other side of the screen.</p>
             </div>
             <div className="about-grid">
               <div className="about-portrait">
                 <img
                   src={portrait}
-                  alt="Retrato de Thiago Gomes"
+                  alt="Portrait of Thiago Gomes"
                   width="1254"
                   height="1254"
                   loading="lazy"
@@ -248,23 +248,23 @@ export function App() {
               </div>
               <div className="about-content">
                 <p className="about-lead">
-                  Curiosidade para entender.
+                  Curiosity to understand.
                   <br />
-                  <span>Prática para construir.</span>
+                  <span>Practice to build.</span>
                 </p>
                 <p>
-                  Uno desenvolvimento web e experiência em suporte de TI para criar soluções simples
-                  de usar.
+                  I draw on my experience in web development and IT support to build user-friendly
+                  solutions.
                 </p>
-                <p>Formado em ADS, hoje curso Engenharia de Software na UNINTER.</p>
+                <p>I hold a degree in Systems Analysis and Development and am studying Software Engineering at UNINTER.</p>
                 <div className="about-facts">
                   <div>
-                    <span>FOCO</span>
-                    <strong>Web & automação</strong>
+                    <span>FOCUS</span>
+                    <strong>Web & automation</strong>
                   </div>
                   <div>
-                    <span>FORMAÇÃO ATUAL</span>
-                    <strong>Engenharia de Software</strong>
+                    <span>CURRENT STUDIES</span>
+                    <strong>Software Engineering</strong>
                   </div>
                 </div>
                 <a
@@ -273,7 +273,7 @@ export function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Minha trajetória no LinkedIn <Icon name="arrow" />
+                  My journey on LinkedIn <Icon name="arrow" />
                 </a>
               </div>
             </div>
@@ -430,3 +430,4 @@ export function App() {
     </>
   );
 }
+
