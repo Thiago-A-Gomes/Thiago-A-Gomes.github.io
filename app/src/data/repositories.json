@@ -5,7 +5,7 @@
     {
       "id": 778576407,
       "name": "Bikcraft",
-      "description": "Exercício introdutório de uma landing page para uma marca de bicicletas elétricas.",
+      "description": "An introductory landing-page exercise for an electric bicycle brand.",
       "url": "https://github.com/Thiago-A-Gomes/Bikcraft",
       "language": "HTML",
       "homepage": null,
@@ -18,7 +18,7 @@
     {
       "id": 1239914375,
       "name": "caixinha-financeira",
-      "description": "Aplicação financeira offline-first com PWA e criptografia local dos dados no navegador.",
+      "description": "An offline-first personal finance PWA with locally encrypted browser data.",
       "url": "https://github.com/Thiago-A-Gomes/caixinha-financeira",
       "language": "HTML",
       "homepage": "https://caixinha-financeira-five.vercel.app",
@@ -38,7 +38,7 @@
     {
       "id": 1292696368,
       "name": "Central-de-compras",
-      "description": "Portal corporativo de solicitacoes de compra integrado ao ERP Sienge - React, Node.js, Azure AD, SQLite, Docker",
+      "description": "Corporate purchase request portal integrated with Sienge ERP using React, Node.js, Azure AD, SQLite, and Docker.",
       "url": "https://github.com/Thiago-A-Gomes/Central-de-compras",
       "language": null,
       "homepage": null,
@@ -60,7 +60,7 @@
     {
       "id": 809567737,
       "name": "Dia-dos-namorados",
-      "description": "Experimento web interativo desenvolvido em HTML como projeto criativo de estudo.",
+      "description": "An interactive HTML web experiment created as a creative learning project.",
       "url": "https://github.com/Thiago-A-Gomes/Dia-dos-namorados",
       "language": "HTML",
       "homepage": null,
@@ -73,7 +73,7 @@
     {
       "id": 1356027280,
       "name": "fiscalguard",
-      "description": "Auditoria preventiva de XMLs de NF-e com processamento local, arquitetura em camadas e foco em segurança.",
+      "description": "Preventive electronic invoice XML auditing with local processing, layered architecture, and a focus on security.",
       "url": "https://github.com/Thiago-A-Gomes/fiscalguard",
       "language": "TypeScript",
       "homepage": null,
@@ -97,7 +97,7 @@
     {
       "id": 1429022781,
       "name": "frontend-challenge-kurio",
-      "description": "Marketplace de NFTs com React e TypeScript, API simulada e testes E2E.",
+      "description": "An NFT marketplace built with React and TypeScript, a simulated API, and end-to-end tests.",
       "url": "https://github.com/Thiago-A-Gomes/frontend-challenge-kurio",
       "language": "TypeScript",
       "homepage": "https://frontend-challenge-kurio-thiago-gomes-projects1.vercel.app/",
@@ -110,7 +110,7 @@
     {
       "id": 685629689,
       "name": "HTML-CSS-CLINICA-Veterinaria",
-      "description": "Projeto de site institucional para clínica veterinária criado para praticar HTML e CSS.",
+      "description": "A veterinary clinic website created to practice HTML and CSS.",
       "url": "https://github.com/Thiago-A-Gomes/HTML-CSS-CLINICA-Veterinaria",
       "language": "HTML",
       "homepage": null,
@@ -123,7 +123,7 @@
     {
       "id": 1312067655,
       "name": "javascript",
-      "description": "Laboratório de JavaScript com mini IDE no navegador e exercícios de lógica organizados por projeto.",
+      "description": "A JavaScript lab with an in-browser mini IDE and project-based logic exercises.",
       "url": "https://github.com/Thiago-A-Gomes/javascript",
       "language": "HTML",
       "homepage": null,
@@ -136,7 +136,7 @@
     {
       "id": 691738562,
       "name": "Origamid-curso-Projetos",
-      "description": "Projetos e exercícios de HTML e CSS desenvolvidos durante os cursos da Origamid.",
+      "description": "HTML and CSS projects and exercises developed during Origamid courses.",
       "url": "https://github.com/Thiago-A-Gomes/Origamid-curso-Projetos",
       "language": "CSS",
       "homepage": null,
@@ -149,7 +149,7 @@
     {
       "id": 920289128,
       "name": "Projetos-Python",
-      "description": "API REST em Flask para praticar operações CRUD em um catálogo de livros.",
+      "description": "A Flask REST API for practicing CRUD operations on a book catalog.",
       "url": "https://github.com/Thiago-A-Gomes/Projetos-Python",
       "language": "Python",
       "homepage": null,
@@ -162,7 +162,7 @@
     {
       "id": 685646745,
       "name": "Thiago-A-Gomes",
-      "description": "Portfólio profissional de Thiago Gomes: suporte de TI, desenvolvimento full stack, cloud, automações e integrações.",
+      "description": "Thiago Gomes’s professional portfolio: IT support, full-stack development, cloud, automation, and integrations.",
       "url": "https://github.com/Thiago-A-Gomes/Thiago-A-Gomes",
       "language": null,
       "homepage": "https://github.com/Thiago-A-Gomes",
@@ -183,7 +183,7 @@
     {
       "id": 724887021,
       "name": "Thiago-A-Gomes.github.io",
-      "description": "Portfólio com React, TypeScript, Vite e Tailwind CSS.",
+      "description": "A portfolio built with React, TypeScript, Vite, and Tailwind CSS.",
       "url": "https://github.com/Thiago-A-Gomes/Thiago-A-Gomes.github.io",
       "language": "TypeScript",
       "homepage": "https://thiago-a-gomes.github.io",
@@ -196,7 +196,7 @@
     {
       "id": 683161781,
       "name": "WEB-DEVELOPER-DIO.ME",
-      "description": "Projetos de estudo em desenvolvimento web realizados durante a formação na DIO.",
+      "description": "Web development study projects completed during DIO training.",
       "url": "https://github.com/Thiago-A-Gomes/WEB-DEVELOPER-DIO.ME",
       "language": "HTML",
       "homepage": null,

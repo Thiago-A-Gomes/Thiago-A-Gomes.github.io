@@ -1,36 +1,36 @@
-# Thiago Gomes · Portfólio
+# Thiago Gomes · Portfolio
 
-**[Abrir portfólio](https://thiago-a-gomes.github.io/)**
+**[View the portfolio](https://thiago-a-gomes.github.io/)**
 
-Portfólio pessoal com projetos selecionados, catálogo dos repositórios públicos, trajetória, formação e contato. Reconstruído com **React 19, TypeScript, Vite e Tailwind CSS**.
+A personal portfolio featuring selected projects, a public repository catalog, professional experience, education, and contact information. Built with **React 19, TypeScript, Vite, and Tailwind CSS**.
 
-## Interface
+## Core features
 
-- Tema escuro como padrão, com alternância para claro e preferência salva no navegador.
-- Direção visual criativa: grafite, verde-lima e detalhes roxos. Escultura ilustrativa original em imagem otimizada, com movimento suave e controle de pausa.
-- Galeria visual com Ritmo Lab em destaque, descrições curtas e detalhes técnicos nos diálogos.
-- Preferência por movimento reduzido respeitada em animações e rolagem.
-- Cards com alturas alinhadas, imagens proporcionais e filtros por categoria.
-- Detalhes dos projetos em diálogo, navegação por teclado e restauração do foco.
-- Catálogo dos repositórios públicos com busca, filtro por linguagem e ordenação, recolhido inicialmente para reduzir a densidade visual.
-- Experiência e formação em seção expansível. Contato por e-mail, LinkedIn, GitHub e WhatsApp; botão para copiar o e-mail.
-- HTML pré-renderizado: conteúdo, formação e links dos projetos disponíveis antes do JavaScript.
+- Dark theme by default, with a light-theme toggle and a saved browser preference.
+- A graphite, lime, and purple visual identity with an original illustration, subtle motion, and a pause control.
+- A project gallery with category filters and technical details in accessible dialogs.
+- Reduced-motion support, keyboard navigation, and focus restoration.
+- A searchable, sortable public repository catalog with language filters.
+- Expandable experience and education sections, contact links, and an email-copy button.
+- Pre-rendered HTML makes content and project links available before JavaScript runs.
 
-## Executar
+## Getting started
 
-Requer Node.js **22.19+ da linha 22** e npm.
+Requires Node.js **22.19 or later in the 22.x line** and npm.
 
 ```sh
 npm ci
 npm run dev
 ```
 
+To build and preview the production version:
+
 ```sh
 npm run build
 npm run preview
 ```
 
-## Testes
+## Tests
 
 ```sh
 npx playwright install chromium
@@ -38,52 +38,50 @@ npm run test:e2e -- --workers=1
 npm run test:report
 ```
 
-Para Chrome já instalado no Windows, defina `$env:PLAYWRIGHT_CHANNEL = 'chrome'` antes da execução.
+To use an existing Chrome installation on Windows, set `$env:PLAYWRIGHT_CHANNEL = 'chrome'` before running the tests. The suite covers filters, search, sorting, project details, dialogs, focus, email copying, reduced motion, hydration errors, images, and responsive layouts from 320 to 1440 pixels. Each test uses an isolated context. Playwright generates local HTML reports and failure traces; existing results are in [reports](reports).
 
-A suíte verifica filtros, busca e ordenação, conteúdo dos projetos, diálogos, foco, cópia do e-mail, movimento reduzido, ausência de erros de hidratação, imagens e responsividade entre 320 e 1440 pixels. Cada teste usa um contexto isolado. Relatórios HTML e traces de falhas são gerados localmente pelo Playwright; resultados estão em [reports](reports).
+The **74 tests mentioned on the Kurio card belong to Kurio**; this portfolio has a separate suite.
 
-Os **74 testes mencionados no card do Kurio pertencem ao Kurio**. A suíte deste portfólio é separada.
-
-## Organização
+## Project structure
 
 ```text
 app/
-  index.html              Template de entrada
+  index.html              Entry template
   src/
-    App.tsx               Composição da página
-    components/           Cena 3D, cards, diálogo e catálogo
-    data/                 Projetos e snapshot público do GitHub
-    styles.css            Tokens, componentes e responsividade
+    App.tsx               Page composition
+    components/           Scene, cards, dialog, and repository catalog
+    data/                 Projects and public GitHub snapshot
+    styles.css            Tokens, components, and responsive styles
 scripts/
-  prerender.mjs           HTML estático a partir da aplicação React
-  export-pages.mjs        Exportação para a publicação existente
-  sync-repositories.mjs   Atualização do catálogo público
-tests/                    Testes Playwright
-img/                      Imagens originais usadas pelo build
-assets/                   Arquivos gerados da publicação
-index.html                HTML gerado para o GitHub Pages
+  prerender.mjs           Static HTML generated from the React application
+  export-pages.mjs        Export to the existing deployment
+  sync-repositories.mjs   Update the public repository catalog
+tests/                    Playwright tests
+img/                      Original images used by the build
+assets/                   Generated deployment assets
+index.html                Generated HTML for GitHub Pages
 ```
 
-Edite o template em `app/index.html` e os componentes em `app/src`. O `index.html` da raiz é gerado; não deve ser editado manualmente.
+Edit the template in `app/index.html` and components in `app/src`. The root `index.html` is generated and should not be edited manually.
 
-## Projetos e dados
+## Projects and data
 
-Os cinco projetos em destaque são descritos em `app/src/data/projects.ts`. Demonstrações, estudos e aplicações em operação têm escopo identificado. O catálogo é um snapshot dos repositórios públicos, não depende de token nem de requisições ao GitHub durante a visita.
+Featured projects are described in `app/src/data/projects.ts`, with the scope of each demo, case study, and production application identified. The repository catalog is a snapshot of public repositories; it does not require a token or GitHub requests during a visit.
 
-Para atualizar:
+To update it:
 
 ```sh
 node scripts/sync-repositories.mjs
 npm run build
 ```
 
-O script consulta apenas a API pública e preserva o catálogo anterior se houver erro. Revise os dados antes de publicar. O Ritmo Lab aparece como demonstração já pública; o catálogo de repositórios inclui somente repositórios públicos.
+The script uses the public GitHub API and retains the previous catalog if a request fails. Review the data before publishing. Ritmo Lab is a public demo; the repository catalog contains only public repositories.
 
-Formação atual: **Engenharia de Software na UNINTER, em andamento**. ADS na CEUNSP permanece como graduação concluída.
+Current education: **Software Engineering at UNINTER, in progress**. The Systems Analysis and Development degree at CEUNSP is complete.
 
-## Publicação
+## Deployment
 
-O GitHub Pages deste repositório publica a raiz de `main`. Para manter esse endereço e a configuração existente, o HTML pré-renderizado e seus assets ficam versionados junto do código-fonte:
+GitHub Pages publishes the root of `main`. Pre-rendered HTML and assets are versioned with the source to preserve the existing address and configuration:
 
 ```sh
 npm run build
@@ -94,8 +92,8 @@ git commit -m "feat: update portfolio"
 git push
 ```
 
-`export:pages` copia somente o build para `index.html` e `assets/`, sem apagar diretórios. `.nojekyll` evita o processamento do site pelo Jekyll. A publicação usa o workflow padrão já configurado no GitHub Pages.
+`export:pages` copies the build to `index.html` and `assets/` without deleting directories. `.nojekyll` prevents Jekyll processing. Deployment uses the existing GitHub Pages workflow.
 
-## Escopo
+## Scope
 
-O portfólio tem dados estáticos e interações locais. Não coleta inscrições, não implementa pagamentos ou autenticação e não exige API própria. Os links dos projetos levam a aplicações com seus próprios limites, documentados nos detalhes e nos repositórios correspondentes.
+The portfolio uses static data and local interactions. It does not collect registrations, process payments, implement authentication, or require its own API. Project links lead to applications with their own limitations, documented in their details and repositories.

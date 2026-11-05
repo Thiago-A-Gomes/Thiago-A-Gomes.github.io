@@ -12,12 +12,12 @@ export function ProjectCard({
   onDetails: (project: Project) => void;
 }) {
   const summaries: Record<string, string> = {
-    'central-estudos': 'Cada estudo, um próximo passo.',
-    'ritmo-lab': 'Crie ritmos. Treine sua escuta.',
-    'central-compras': 'Da solicitação ao ERP, em um só fluxo.',
-    kurio: 'Uma experiência de descoberta para arte digital.',
-    fiscalguard: 'Menos conferência manual. Mais clareza.',
-    caixinha: 'Suas contas e metas, cada uma no seu lugar.',
+    'central-estudos': 'Every study session, a step forward.',
+    'ritmo-lab': 'Create rhythms. Train your ear.',
+    'central-compras': 'From request to ERP, in one workflow.',
+    kurio: 'A discovery experience for digital art.',
+    fiscalguard: 'Less manual checking. More clarity.',
+    caixinha: 'Your accounts and goals, organized in one place.',
   };
   return (
     <article
@@ -47,9 +47,9 @@ export function ProjectCard({
           <button
             className="text-link"
             onClick={() => onDetails(project)}
-            aria-label={`Por dentro do projeto: ${project.name}`}
+            aria-label={`Project details: ${project.name}`}
           >
-            Ver projeto <Icon name="arrow" />
+            View project <Icon name="arrow" />
           </button>
           <a
             className="project-external"
@@ -59,9 +59,9 @@ export function ProjectCard({
             aria-label={
               project.demo
                 ? project.access === 'private'
-                  ? `Abrir acesso privado de ${project.name}`
-                  : `Abrir demonstração de ${project.name}`
-                : `Abrir documentação de ${project.name}`
+                  ? `Open private access to ${project.name}`
+                  : `Open ${project.name} demo`
+                : `Open ${project.name} documentation`
             }
           >
             <Icon name={project.demo ? 'arrow' : 'github'} />
