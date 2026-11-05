@@ -99,11 +99,8 @@ export function App() {
       <header className="site-header">
         <div className="container header-inner">
           <a className="brand" href="#inicio">
-            <span className="brand-symbol" aria-hidden="true">
-              tg<span>·</span>
-            </span>
             <span className="brand-name">
-              thiago gomes<span>PORTFÓLIO / 2026</span>
+              Thiago Gomes<span>Full-Stack Developer</span>
             </span>
           </a>
           <nav aria-label="Navegação principal">
