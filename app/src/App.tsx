@@ -253,8 +253,8 @@ export function App() {
                   <span>Practice to build.</span>
                 </p>
                 <p>
-                  I combine web development and IT support experience to create solutions that are
-                  simple to use.
+                  I draw on my experience in web development and IT support to build user-friendly
+                  solutions.
                 </p>
                 <p>I hold a degree in Systems Analysis and Development and am studying Software Engineering at UNINTER.</p>
                 <div className="about-facts">
