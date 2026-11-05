@@ -100,10 +100,14 @@ export function App() {
         <div className="container header-inner">
           <a className="brand" href="#inicio">
             <span className="brand-symbol" aria-hidden="true">
-              tg<span>·</span>
+              <svg viewBox="0 0 40 40" width="32" height="32" fill="none">
+                <path d="M11 12 5 20l6 8M29 12l6 8-6 8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M16 14h9m-4.5 0v12m5-7h4v5.5c-1.1 1.1-2.6 1.5-4 1.5-3.1 0-5-2.3-5-5.5S22.5 15 25.5 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="31.5" cy="30" r="2" fill="var(--accent)" />
+              </svg>
             </span>
             <span className="brand-name">
-              thiago gomes<span>PORTFÓLIO / 2026</span>
+              Thiago Gomes<span>Full-Stack Developer</span>
             </span>
           </a>
           <nav aria-label="Navegação principal">
